@@ -2,6 +2,7 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
 //setting up our app to extablish connections
+const PORT = 3000;
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -14,7 +15,16 @@ app.engine(
     })
 );
 app.set("view engine", "handlebars");
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+
+mongoose.connect(MONGODB_URI);
 
 //calling our routes
 require("./routes/scrapingRoutes.js")(app);
+require("./routes/htmlRoutes.js")(app);
+// require("./routes/apiRoutes.js")(app);
+// Start the server
+app.listen(PORT, function () {
+    console.log("App running on port " + PORT + "!");
+});
 module.exports = app;

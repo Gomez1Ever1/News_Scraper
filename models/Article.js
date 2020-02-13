@@ -5,16 +5,16 @@ const Schema = mongoose.Schema;
 
 const ArticleSchema = new Schema({
     headline: {
-        type: String,
-        required: true
+        type: String
     },
     link: {
-        type: String,
-        required: true
+        type: String
+    },
+    art_img: {
+        type: String
     },
     summary: {
-        type: String,
-        required: true
+        type: String
     }
 });
 const Article = mongoose.model("Article", ArticleSchema);
