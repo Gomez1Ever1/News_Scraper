@@ -17,13 +17,15 @@ app.engine(
 app.set("view engine", "handlebars");
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-mongoose.connect(MONGODB_URI);
+mongoose.connect((MONGODB_URI), { useUnifiedTopology: true, useNewUrlParser: true });
 
 //calling our routes
 require("./routes/scrapingRoutes.js")(app);
 require("./routes/htmlRoutes.js")(app);
+const routes = require("./controller/controller.js")
 // require("./routes/apiRoutes.js")(app);
 // Start the server
+app.use(routes);
 app.listen(PORT, function () {
     console.log("App running on port " + PORT + "!");
 });

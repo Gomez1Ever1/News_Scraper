@@ -8,7 +8,6 @@ module.exports = function (app) {
             const $ = cheerio.load(response.data);
             $("div[id=overflow-container]").children("div[id=max-width]").children("div[class=content-container]").children("div[class=layout-container]")
                 .children("section[id=main]").children("div[id=loop-container]").children("div").each(function (i, element) {
-                    console.log(i)
                     var result = {};
                     result.headline = $(this)
                         .children("article")
@@ -33,7 +32,7 @@ module.exports = function (app) {
                         .children("p")
                         .text();
                     db.Article.create(result)
-                        .then(dbArticle => console.log(dbArticle))
+                        .then(dbArticle => console.log("scrape complete"))
                         .catch(err => console.log(err))
                 });
             res.send("scrape complete");
