@@ -8,6 +8,7 @@ router.get("/", function (req, res) {
     db.Article.find({})
         .then(function (data) {
             const newData = convertProjectsToOwnObjects(data);
+            console.log(newData);
             res.render("index", { articles: newData });
             console.log("page loaded")
         })
