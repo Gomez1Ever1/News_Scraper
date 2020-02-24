@@ -15,6 +15,9 @@ const savedArticleSchema = new Schema({
     },
     summary: {
         type: String
+    },
+    id: {
+        type: String
     }
 });
 const savedArticle = mongoose.model("savedArticle", savedArticleSchema);
