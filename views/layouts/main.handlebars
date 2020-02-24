@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./index.js"></script>
+    <link href="assets/styles.css" rel="stylesheet" type="text/css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -19,7 +20,14 @@
 
 <body>
     <div class="container">
-        {{body}}
+        <div class="jumbotron">
+            <h1>The News That Matters</h1>
+            <h2 id="instructions">Click to scrape and browse through the news that matters!</h2>
+            <button id="scrapeBtn">Click to Scrape!</button>
+            <button id="deletThis">Click to clear the scrape</button>
+            <button id="viewSaved">View what you thought was important</button>
+        </div>
+        {{{body}}}
     </div>
 
 </body>

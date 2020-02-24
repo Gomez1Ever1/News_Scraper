@@ -1,15 +1,13 @@
-<h1>The News That Matters</h1>
-
 <ul>
     {{#each articles}}
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src={{art_image}} alt="article">
+    <div class="card col-lg-4 ">
+        <img class="card-img-top img-fluid" src={{art_img}} alt="article">
         <div class="card-body">
             <a href={{link}}>
                 <h5 class="card-title">{{headline}}</h5>
             </a>
             <p class="card-text">{{summary}}</p>
-            <button class="btn btn-primary">Click to save article</button>
+            <button class="btn btn-primary" id="saveBtn" data-id={{id}}>Click to save article</button>
         </div>
     </div>
     {{/each}}

@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 // Save a reference to the Schema constructor
 const Schema = mongoose.Schema;
 
-const ArticleSchema = new Schema({
+const savedArticleSchema = new Schema({
     headline: {
         type: String
     },
@@ -15,10 +15,7 @@ const ArticleSchema = new Schema({
     },
     summary: {
         type: String
-    },
-    id: {
-        type: String
     }
 });
-const Article = mongoose.model("Article", ArticleSchema);
-module.exports = Article;
+const savedArticle = mongoose.model("savedArticle", savedArticleSchema);
+module.exports = savedArticle;

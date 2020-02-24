@@ -1,0 +1,14 @@
+.card{
+   display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    flex-flow:'flex-wrap';
+    justify-content:center;
+    align-content:space-around;
+    align-items:stretch; 
+    margin-bottom:10px;
+    margin-top:10px;
+}
+img{
+   width:100%;
+}

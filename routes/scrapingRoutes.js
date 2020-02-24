@@ -24,8 +24,9 @@ module.exports = function (app) {
                     result.art_img = $(this)
                         .children("article")
                         .children("div[class=featured-image]")
+                        .children("a")
                         .children("img")
-                        .attr("src");
+                        .attr("data-src");
                     result.summary = $(this)
                         .children("article")
                         .children("div[class=post-content]")
@@ -35,6 +36,7 @@ module.exports = function (app) {
                         .then(dbArticle => console.log("scrape complete"))
                         .catch(err => console.log(err))
                 });
+
             res.send("scrape complete");
         });
     });

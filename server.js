@@ -23,7 +23,7 @@ mongoose.connect((MONGODB_URI), { useUnifiedTopology: true, useNewUrlParser: tru
 require("./routes/scrapingRoutes.js")(app);
 require("./routes/htmlRoutes.js")(app);
 const routes = require("./controller/controller.js")
-// require("./routes/apiRoutes.js")(app);
+require("./routes/apiRoutes.js")(app);
 // Start the server
 app.use(routes);
 app.listen(PORT, function () {
