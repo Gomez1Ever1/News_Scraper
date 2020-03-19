@@ -16,27 +16,24 @@ $(document).on("click", "#scrapeBtn", function () {
 });
 $(document).on("click", "#deletThis", function () {
     $.ajax({
+        method: "DELETE",
         url: "/deleteArticles",
-        type: "DELETE",
-        success: function (response) {
-            location.reload();
-        }
-    })
+        type: "DELETE"
+    }).then(function (response) {
+        console.log("works")
+        location.reload();
+    });
 });
 
 $(document).on("click", "#viewSaved", function () {
-    $.ajax({
-        method: "GET",
-        url: "/viewSaved"
-    })
-        .then(function (data) {
-            res.json(data);
-        })
+    window.location = "/viewSaved";
+
 });
 $(document).on("click", "#saveBtn", function () {
     // Save the id from the button so we can transfer it from one db to the other
     var thisId = $(this).attr("data-id");
     const savedArticle = { thisId };
+    console.log(thisId)
     $.ajax({
         method: "POST",
         url: "/article/" + thisId,

@@ -20,7 +20,7 @@ function convertProjectsToOwnObjects(projects) {
             link: project.link,
             art_img: project.art_img,
             summary: project.summary,
-            id: project._id
+            _id: project._id
         }
     });
 }
@@ -28,8 +28,8 @@ router.get("/viewSaved", function (req, res) {
     db.savedArticle.find({})
         .then(function (data) {
             const savedData = convertProjectsToOwnObjects(data);
-            console.log(data);
-            res.render("index", { articles: savedData });
+            console.log(savedData);
+            res.render("index2", { articles: savedData });
             console.log("page loaded")
         });
 })

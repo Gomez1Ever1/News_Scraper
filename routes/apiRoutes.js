@@ -1,11 +1,20 @@
 const db = require("../models");
 module.exports = function (app) {
     app.post("/article/:id", function (req, res) {
-        db.Article.findOne({ _id: req.body.thisId }, function (result) {
+        console.log(req.body)
+        db.Article.findOne({ _id: req.body.thisId }, function (err, result) {
             console.log(result)
-            db.savedArticle.create(result)
+            const clonedResult = {
+                headline: result.headline,
+                link: result.link,
+                art_img: result.art_img,
+                summary: result.summary
+            };
+
+            db.savedArticle.create(clonedResult)
                 .then(function (newArticle) {
                     res.json(newArticle);
+                    console.log(newArticle)
                     console.log("Article Saved")
                 });
         })
