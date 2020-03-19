@@ -8,9 +8,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
-} else {
-
-    app.use(express.static("public"));
 }
 //Setting up handlebars
 app.engine(
