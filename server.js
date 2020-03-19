@@ -2,7 +2,7 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
 //setting up our app to extablish connections
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
