@@ -21,7 +21,7 @@ module.exports = function (app) {
     })
     app.delete("/deleteArticles", function (req, res) {
         db.Article.deleteMany({})
-            .then(function () {
+            .then(function (res) {
                 console.log("fresh scrape")
             })
             .catch((err) => res.json(err));

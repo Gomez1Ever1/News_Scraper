@@ -17,8 +17,7 @@ $(document).on("click", "#scrapeBtn", function () {
 $(document).on("click", "#deletThis", function () {
     $.ajax({
         method: "DELETE",
-        url: "/deleteArticles",
-        type: "DELETE"
+        url: "/deleteArticles"
     }).then(function (response) {
         console.log("works")
         location.reload();
