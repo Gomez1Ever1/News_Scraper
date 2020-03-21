@@ -6,9 +6,7 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
-}
+app.use(express.static(path.join(__dirname, "public"));
 //Setting up handlebars
 app.engine(
     "handlebars",
