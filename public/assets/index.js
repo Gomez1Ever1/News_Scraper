@@ -40,7 +40,7 @@ $(document).on("click", "#saveBtn", function () {
         data: savedArticle
     })
         // With that done, add the note information to the page
-        .then(function (data) {
+        .then(function (data, res) {
             res.json(data)
             console.log(data);
         });
