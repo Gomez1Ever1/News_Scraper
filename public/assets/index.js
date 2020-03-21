@@ -10,14 +10,16 @@ $(document).on("click", "#scrapeBtn", function () {
                 url: "/"
             }).then(function (data) {
                 res.json(data);
+                location.reload();
+                window.location("/");
             })
-            location.reload();
         });
 });
 $(document).on("click", "#deletThis", function () {
     $.ajax({
         method: "DELETE",
-        url: "/deleteArticles"
+        url: "/deleteArticles",
+        type: "DELETE"
     }).then(function (response) {
         console.log("works")
         location.reload();
@@ -26,13 +28,12 @@ $(document).on("click", "#deletThis", function () {
 
 $(document).on("click", "#viewSaved", function () {
     window.location = "/viewSaved";
-
 });
 $(document).on("click", "#saveBtn", function () {
     // Save the id from the button so we can transfer it from one db to the other
     var thisId = $(this).attr("data-id");
     const savedArticle = { thisId };
-    console.log(thisId)
+    console.log(savedArticle)
     $.ajax({
         method: "POST",
         url: "/article/" + thisId,

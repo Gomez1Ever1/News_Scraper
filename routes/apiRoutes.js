@@ -2,7 +2,7 @@ const db = require("../models");
 module.exports = function (app) {
     app.post("/article/:id", function (req, res) {
         console.log(req.body)
-        db.Article.findOne({ _id: req.body.thisId }, function (err, result) {
+        db.Article.findOne({ _id: req.body.savedArticle }, function (err, result) {
             console.log(result)
             const clonedResult = {
                 headline: result.headline,
@@ -22,7 +22,7 @@ module.exports = function (app) {
     app.delete("/deleteArticles", function (req, res) {
         db.Article.deleteMany({})
             .then(function (res) {
-                console.log("fresh scrape")
+                res.json(res);
             })
             .catch((err) => res.json(err));
     })
