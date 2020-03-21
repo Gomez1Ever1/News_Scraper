@@ -1,6 +1,7 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
+const path = require("path");
 //setting up our app to extablish connections
 const PORT = process.env.PORT || 8080;
 const app = express();
