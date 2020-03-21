@@ -12,6 +12,7 @@ $(document).on("click", "#scrapeBtn", function () {
                 res.json(data);
                 location.reload();
             })
+            window.location = "/";
         });
 });
 $(document).on("click", "#deletThis", function () {
