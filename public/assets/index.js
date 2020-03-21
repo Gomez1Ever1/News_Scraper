@@ -11,7 +11,6 @@ $(document).on("click", "#scrapeBtn", function () {
             }).then(function (data) {
                 res.json(data);
                 location.reload();
-                window.location("/");
             })
         });
 });
